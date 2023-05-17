@@ -2,9 +2,11 @@
 from utils.api import Google_maps_api
 from utils.checking import Checking
 import json
+import allure
 """Тесты - Создание, изменение и удаление новой локации"""
+@allure.epic("Test create place")
 class Test_create_place():
-
+    @allure.description("Test create, update, delete new location")
     def test_create_new_place(self):
 
         print("\nМетод POST")
@@ -56,5 +58,4 @@ class Test_create_place():
         result_get = Google_maps_api.get_new_place(place_id)    # сюда передаем place id  с предыдущей функции
         Checking.check_status_code(result_get, 404)
         Checking.check_json_search_word_in_value(result_get, 'msg', 'Get operation failed')
-
         print("Тестирование создания, изменения и удаления новой локации прошло успешно!")
