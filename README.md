@@ -71,3 +71,25 @@ class Http_method:
         print(result_post.text)
         return result_post
 ```
+### Шаг 3. Создание тестов
+
+1. В папке ```tests``` создать файл ```test_google_maps_api.py```
+2. Слово ```test``` обязательно в названии файла теста - по нему pytest запускае тесты
+3. импортируем в данный файл из файла api наш класс Google maps:<br/>
+```from utils.api import Google_maps_api```
+4. Создаем класс, где будем хранить все методы тестирования:<br/>
+```class Test_create_place():```
+5. Создаем методы в формате:
+
+```
+    def test_create_new_place(self):
+        print("\nМетод POST")
+        result_post = Google_maps_api.create_new_place()
+```
+6. Методы необходимы следующие - сам запрос и его проверка:
+    - POST
+    - GET => POST
+    - PUT
+    - GET => PUT
+    - DELETE
+    - GET => DELETE
