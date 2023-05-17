@@ -41,10 +41,10 @@ class Http_method:
 3. импортируем в файл с методами:<br/> 
 ```from utils.http_method import Http_method```
 4. Создаем функции, согласно API документации, для:
-    - создания новой локации
-    - получения созданной локации
-    - изменение созданной локации
-    - удаления созданной локации
+    - создания новой локации<br/> ```def create_new_place():```
+    - получения созданной локации<br/>```def get_new_place(place_id):```
+    - изменение созданной локации<br/>```def put_new_place(place_id):```
+    - удаления созданной локации<br/>```def delete_new_place(place_id):```
 ```
     @staticmethod
     def create_new_place():
