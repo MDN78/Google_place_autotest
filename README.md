@@ -99,7 +99,8 @@ class Http_method:
     - импортируем ``` import json```
     - создаем класс ```class Checking()```
     - создаем статичную функцию проверки статус кода<br/>
-     ```@staticmethod
+     ```
+        @staticmethod
         def check_status_code(result, status_code):
         assert status_code == result.status_code
         print(f"Успешно! Статус код = {result.status_code}")
