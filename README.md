@@ -106,3 +106,20 @@ class Http_method:
         print(f"Успешно! Статус код = {result.status_code}")
     ```
 8. Добавление метода для проверки наличия обязательных полей
+    - добавляем метод в файл ```checking```
+    - создаем статичную функцию 
+    ```     
+    def check_json_token(result, expected_value):
+        token = json.loads(result.text)
+        assert list(token) == expected_value
+        print("Все поля присутствуют")
+    ```
+
+    - добавляем наш созданный метод, для этого в файл  ```test_google_maps_api``` добавляем в каждый наш метод  POST, GET, PUT, DELETE. В начале в первый метод POST:
+    ```
+    token = json.loads(result_post.text)
+    print(list(token))
+    Checking.check_json_token(result_post, ['status', 'place_id', 'scope', 'reference', 'id'])
+    ``` 
+    - 
+
