@@ -38,7 +38,7 @@ class Http_method:
 
 1. Создаем файл ```api.py```
 2. Создаем класс ```class Google_maps_api():```
-3. импортируем в файл с методами:<br/> 
+3. импортируем в файл с нашими методами:<br/> 
 ```from utils.http_method import Http_method```
 4. Создаем функции, согласно API документации, для:
     - создания новой локации<br/> ```def create_new_place():```
@@ -85,11 +85,23 @@ class Http_method:
     def test_create_new_place(self):
         print("\nМетод POST")
         result_post = Google_maps_api.create_new_place()
+        place_id = check_post.get("place_id")
 ```
-6. Методы необходимы следующие - сам запрос и его проверка:
+6. Методы необходимы следующие - сам запрос и его проверка, согласно документации API:
     - POST
     - GET => POST
     - PUT
     - GET => PUT
     - DELETE
     - GET => DELETE
+7. Добавление Метода для проверки статус кода:
+    - Создаем новый файл ```checking.py``` в котором будут созданы методы проверки статус кода
+    - импортируем ``` import json```
+    - создаем класс ```class Checking()```
+    - создаем статичную функцию проверки статус кода<br/>
+     ```@staticmethod
+        def check_status_code(result, status_code):
+        assert status_code == result.status_code
+        print(f"Успешно! Статус код = {result.status_code}")
+    ```
+8. Добавление метода для проверки наличия обязательных полей
